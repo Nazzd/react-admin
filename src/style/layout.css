@@ -1,0 +1,28 @@
+.app {
+    font-size: 1.6rem;
+}
+
+.app .aside {
+    position: fixed;
+    left: 0;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.app .aside .logo {
+    height: 4rem;
+    margin: 1rem;
+    padding: 0 1rem;
+    text-align: center;
+}
+
+.app .header {
+    background-color: #fff;
+    padding: 0 1.5rem;
+    display: flex;
+    justify-content: space-between;
+}
+.app .header .left{
+    display: flex;
+    align-items: center;
+}
