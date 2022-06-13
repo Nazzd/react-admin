@@ -55,6 +55,11 @@ export default function AppSider(props) {
         }
     }, [menu]) // 如果指定的是[], 回调函数只会在第一次render()后执行
 
+    const onOpenChange = (openKeys) => {
+        console.log(openKeys);
+
+    }
+
     return (
         <Sider className='aside' collapsed={menuToggle}  >
             <div className='logo'>
@@ -68,6 +73,7 @@ export default function AppSider(props) {
                 defaultSelectedKeys={['1']}
                 onClick={menuClick}
                 items={menus}
+                onOpenChange={onOpenChange}
             />
         </Sider>
     )

@@ -1,11 +1,14 @@
 import { Layout, Divider } from 'antd'
 import React from 'react'
+import CustomBreadcrumb from '../../components/CustomBreadcrumb/CustomBreadcrumb'
 
 export default function About() {
 
     return (
         <Layout>
             <div>
+
+                <CustomBreadcrumb arr={[{ title: "关于", link: "/about" }]} />
 
             </div>
             <div className='base-style'>
