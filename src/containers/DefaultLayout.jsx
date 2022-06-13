@@ -9,6 +9,8 @@ import { connect } from 'react-redux';
 import { menuToggleAction } from '../store/menuToggle_action'
 import { Outlet } from 'react-router-dom';
 import menus from './menu';
+
+import { GetRoutes } from '../routes';
 const { Content } = Layout;
 
 function DefaultLayout(props) {
@@ -23,7 +25,7 @@ function DefaultLayout(props) {
       {/* 左边导航栏，导航数据从父组件传入子组件 */}
       <AppSider
         menuToggle={menuToggle}
-        menu = {menus}
+        menu={menus}
 
       />
 
@@ -32,7 +34,8 @@ function DefaultLayout(props) {
         <AppHeader
           menuToggle={menuToggle}
           menuClick={menuClick} />
-        <Content>
+        <Content className='content'>
+          {<GetRoutes />}
           {/* 需要动态添加路由数据 */}
           <Outlet />
         </Content>
@@ -44,17 +47,17 @@ function DefaultLayout(props) {
 
 }
 
-// 函数返回的对象中的key作为传递给UI组件props的key,value作为传递给UI组件props的value----状态值
-function mapStateToProps(state) {
-  return {
-    menuToggle: state.menuToggle
-  }
-}
-// 函数返回的对象中的key作为传递给UI组件props的key,value作为传递给UI组件props的value----操作方法
-const mapDispatchToProps = dispatch => ({
-  menuClick: () => dispatch(menuToggleAction())
+// // 函数返回的对象中的key作为传递给UI组件props的key,value作为传递给UI组件props的value----状态值
+// function mapStateToProps(state) {
+//   return {
+//     menuToggle: state.menuToggle
+//   }
+// }
+// // 函数返回的对象中的key作为传递给UI组件props的key,value作为传递给UI组件props的value----操作方法
+// const mapDispatchToProps = dispatch => ({
+//   menuClick: () => dispatch(menuToggleAction())
 
-})
+// })
 
 // export default connect(mapStateToProps, mapDispatchToProps)(DefaultLayout);
 

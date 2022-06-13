@@ -1,9 +1,6 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import {
     RedditOutlined,
-    UploadOutlined,
-    UserOutlined,
-    VideoCameraOutlined,
 } from '@ant-design/icons';
 
 import * as Icons from '@ant-design/icons';
@@ -20,31 +17,43 @@ export default function AppSider(props) {
     const navigate = useNavigate()
 
     const [menus, setMenus] = React.useState([])
-    
+
     const menuClick = (item, key, keyPath, domEvent) => {
         navigate(item.key, {
             replace: false
         })
     }
-    
-    React.useEffect(() => { 
-        // 在此可以执行任何带副作用操作
-        
-        const newMenus = []
-        menu.map((item) => {
-            let nitem = {
-                ...item,
-                label: item.title,
-                icon: React.createElement(Icons[item.icon])
-            }
-            newMenus.push(nitem)
-        })
-        setMenus(newMenus)
-    
-        return () => { // 在组件卸载前执行
-          // 在此做一些收尾工作, 比如清除定时器/取消订阅等
+
+
+    // 递归获取menu信息
+    const getMenu = (data) => {
+        const getNestedMenu = (data, menuList = []) => {
+            data.forEach(item => {
+                let curMenu = {
+                    ...item,
+                    label: item.title,
+                    icon: item.icon === '' ? '' : React.createElement(Icons[item.icon])
+                }
+                if (item.children && item.children.length) {
+                    curMenu.children = getNestedMenu(item.children)
+                }
+                menuList.push(curMenu)
+            })
+            return menuList;
         }
-      }, [menu]) // 如果指定的是[], 回调函数只会在第一次render()后执行
+        return getNestedMenu(data);
+    }
+
+    React.useEffect(() => {
+        // 在此可以执行任何带副作用操作
+        const antd_menu = getMenu(menu)
+
+        setMenus(antd_menu)
+
+        return () => { // 在组件卸载前执行
+            // 在此做一些收尾工作, 比如清除定时器/取消订阅等
+        }
+    }, [menu]) // 如果指定的是[], 回调函数只会在第一次render()后执行
 
     return (
         <Sider className='aside' collapsed={menuToggle}  >

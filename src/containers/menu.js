@@ -69,7 +69,7 @@ const menu = [
                 title: '二级',
                 key: '/one/two',
                 icon: '',
-                subs: [{ title: '三级', key: '/one/two/three', icon: '' }]
+                children: [{ title: '三级', key: '/one/two/three', icon: '' }]
             }
         ]
     },
