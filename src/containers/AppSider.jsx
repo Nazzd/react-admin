@@ -6,7 +6,7 @@ import {
 import * as Icons from '@ant-design/icons';
 
 import { Menu, Layout } from 'antd';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const { Sider } = Layout;
 
@@ -16,6 +16,8 @@ export default function AppSider(props) {
 
     const navigate = useNavigate()
 
+    const location = useLocation()
+
     const [menus, setMenus] = React.useState([])
 
     const menuClick = (item, key, keyPath, domEvent) => {
@@ -23,6 +25,8 @@ export default function AppSider(props) {
             replace: false
         })
     }
+
+    console.log(location);
 
 
     // 递归获取menu信息
@@ -70,7 +74,8 @@ export default function AppSider(props) {
             <Menu
                 theme="dark"
                 mode="inline"
-                defaultSelectedKeys={['1']}
+                defaultSelectedKeys={['/index']}
+                selectedKeys = {[location.pathname]}
                 onClick={menuClick}
                 items={menus}
                 onOpenChange={onOpenChange}

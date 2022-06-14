@@ -74,6 +74,16 @@ const menu = [
         ]
     },
     {
+        title: '系统设置',
+        key: '/system',
+        icon: 'SettingOutlined',
+        children: [
+            { title: '角色', key: '/system/role', icon: '' },
+            { title: '权限', key: '/system/auth', icon: '' },
+            { title: '用户', key: '/system/user', icon: '' },
+        ]
+    },
+    {
         title: '关于',
         key: '/about',
         icon: 'UserOutlined',

@@ -7,11 +7,20 @@ export default function CustomBreadcrumb(props) {
 
     const getBreadcrumbItem = () => {
         return props.arr.map((res) => {
-            return (
-                <Breadcrumb.Item key={res.title}>
-                    <Link to={res.link}>{res.title}</Link>
-                </Breadcrumb.Item>
-            )
+            if (res.link === '') {
+                return (
+                    <Breadcrumb.Item key={res.title}>
+                        {res.title}
+                    </Breadcrumb.Item>
+                )
+            } else {
+                return (
+                    <Breadcrumb.Item key={res.title}>
+                        <Link to={res.link}>{res.title}</Link>
+                    </Breadcrumb.Item>
+                )
+            }
+
         })
     }
 

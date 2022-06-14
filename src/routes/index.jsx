@@ -3,6 +3,9 @@ import View404 from "../views/Others/404";
 import View500 from "../views/Others/500";
 import About from "../views/About/About";
 import Index from "../views/Index/Index";
+import Auth from "../views/System/Auth/Auth";
+import User from "../views/System/User/User";
+import Role from "../views/System/Role/Role";
 
 export const GetRoutes = () => {
     let routes = useRoutes([
@@ -25,6 +28,18 @@ export const GetRoutes = () => {
         {
             path: "/",
             element: <Navigate to="/index" />
+        },
+        {
+            path: "/system/role",
+            element: <Role />
+        },
+        {
+            path: "/system/auth",
+            element: <Auth />
+        },
+        {
+            path: "/system/user",
+            element: <User />
         }
     ])
     return routes;
