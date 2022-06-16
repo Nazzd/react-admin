@@ -1,5 +1,5 @@
 import { Layout, Row, Col, Divider, Table } from 'antd'
-import React, { Fragment } from 'react'
+import React from 'react'
 import CustomBreadcrumb from '../../../components/CustomBreadcrumb/CustomBreadcrumb'
 import { Button, Checkbox, Form, Input } from 'antd';
 

@@ -3,7 +3,7 @@ import View404 from "../views/Others/404";
 import View500 from "../views/Others/500";
 import About from "../views/About/About";
 import Index from "../views/Index/Index";
-import Auth from "../views/System/Auth/Auth";
+import Source from "../views/System/Source/Source";
 import User from "../views/System/User/User";
 import Role from "../views/System/Role/Role";
 
@@ -34,8 +34,8 @@ export const GetRoutes = () => {
             element: <Role />
         },
         {
-            path: "/system/auth",
-            element: <Auth />
+            path: "/system/source",
+            element: <Source />
         },
         {
             path: "/system/user",

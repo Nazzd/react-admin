@@ -79,7 +79,7 @@ const menu = [
         icon: 'SettingOutlined',
         children: [
             { title: '角色', key: '/system/role', icon: '' },
-            { title: '权限', key: '/system/auth', icon: '' },
+            { title: '资源', key: '/system/source', icon: '' },
             { title: '用户', key: '/system/user', icon: '' },
         ]
     },
